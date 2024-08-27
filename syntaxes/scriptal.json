@@ -1,0 +1,309 @@
+{
+	"name": "Scriptal",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#compounds"
+		},
+		{
+			"include": "#commands"
+		},
+		
+		{
+			"include": "#connectors"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#custom_commands"
+		}
+	],
+
+	"repository": {
+		"comments": {
+			"patterns": [
+				{ "name": "comment.block.scriptal", "begin": "(###)", "end": "(\\1)" },
+				{ "name": "comment.line.number-sign.scriptal", "match": "#.*$" }
+			]
+		},
+
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.other.dollar.scriptal",
+					"match": "\\$[_a-zA-Z][_a-zA-Z0-9]*(?:\\.[_a-zA-Z0-9]+)*"
+				},
+				{
+					"name": "variable.other.at.scriptal",
+					"match": "@[_a-zA-Z][_a-zA-Z0-9]*(?:\\.[_a-zA-Z0-9]+)*"
+				}
+			]
+		},
+
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.command.scriptal",
+					"match": "\\b(START|EACH_LINE|EMPTY_LINES|EVEN_LINES|ODD_LINES|CONTENT_LINES|GLOBAL|END)\\b"
+				},
+				{
+					"name": "constant.language.scriptal",
+					"match": "\\b(NULL|TRUE|FALSE|EMPTY|UNKNOWN|INFINITY|NAN)\\b"
+				},
+				{
+					"name": "support.type.scriptal",
+					"match": "\\b(NUMBER|STRING|BOOL|MAP|ARRAY|ANY|VAR|PATTERN|ARRAY_NUMBER|ARRAY_STRING|ARRAY_BOOL|ARRAY_MAP|ARRAY_ARRAY|ARRAY_VAR)\\b"
+				},
+				{
+					"name": "constant.language.scriptal",
+					"match": "\\b(DOT|SPACE|HASH|ELLIPSIS|COMMA|TAB|NEWLINE)\\b"
+				}
+			]
+		},
+
+		"compounds": {
+			"patterns": [
+				{
+					"name": "keyword.control.scriptal",
+					"match": "\\b(WHEN|ORWHEN|ELSE|OTHERWHISE|AND|OR|ITERATE|WHILE|REPEAT|RETURN|BREAK|CONTINUE|SKIP)\\b"
+				},
+				{
+					"name": "keyword.control.scriptal",
+					"match": "\\b(TRY|CATCH|THROW|ERROR)\\b"
+				}
+			]
+		},
+
+		"commands": {
+			"patterns": [
+				{
+					"name": "support.function.user-defined.scriptal",
+					"match": "\\bDEFINE\\s+([A-Za-z][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "function.definition.scriptal"
+						}
+					}
+				},
+	
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(IMPORT|EXPORT|INPUT|OUTPUT|STORE|CLEAR_STORAGE|DEFINE|PARAMS|ON|PRINT|PRINTF|PRINTL)\\b"
+				},
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(SET|UNSET|VAR_SET|VAR_GET|VAR_EXISTS|VAR_UNSET|RASSIGN|GLOBAL_SET|APPEND|INCREMENT|DECREMENT|PICK|FLOAT|TYPE)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(PATTERN_INFO|MATCH|MATCH_ALL|MATCH_FIRST|MATCH_FULL)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(SPLIT|UPPERCASE|LOWERCASE|TITLECASE|CAMELCASE|KEBABCASE|MACROCASE|SNAKECASE|FLATCASE|SWAPCASE|CASEFOLD|CAPITALIZE|SLUG|REVERSE)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(FIND|REPLACE|REPLACE_ALL|JOIN|REMOVE|REMOVE_FIRST|REMOVE_LAST|REMOVE_DUPLICATES|COUNT|EXTRACT|EXTRACT_FIRST|EXTRACT_LAST|PAD_START|PAD_END|PAD|STARTS|ENDS|TRUNCATE|CHAR|ORD|FORMAT|CHAR_AT|INSERT|TRIM|TRIM_START|TRIM_END|LENGTH)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(NORMALIZE|TRANSLIT|ESCAPE|UNESCAPE|REMOVE_ACCENTS|HEX|BIN|OCT|HEX_TO_DEC|BIN_TO_DEC|OCT_TO_DEC)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(MIN|MAX|ROUND|ROUND_UP|ROUND_DOWN|BOUND|SUM|SUBTRACT|MULTIPLY|DIVIDE)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(POWER|POW|SQRT|MOD|ABS|ABSOLUTE|SIN|COS|TAN|LOG|LOG10|LOGN|FACTORIAL|EXP|FRACTIONAL|FRAC|STAT_MEDIAN|STAT_AVERAGE|STAT_VARIANCE|STAT_STDEV|STAT_MODE)\\b"
+				},
+				
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(TRANSLATE|TRANSLATE_ATTEMPTS|TRANSLATE_FROM|TRANSLATE_TO|TRANSLATES|TRANSLATE_SUPPORTED_LANGS|TRANSLATE_SUPPORTED_CODES)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(MAP_SET_KEY|MAP_GET_KEY|MAP_KEYS|MAP_VALUES|MAP_ITEMS|KEY|DELETE|UPDATE|MERGE|CONTAINS|MAP_SET)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(RANDOM|RANDOM_CHOICE|SHUFFLE)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(ARRAY_SET|SORT|GET|PUT|CONCAT|ELEM|EXTEND|FLATTEN|CLEAN|CLEAR|DUPLICATES|INTERSECT|TRANSFORM|DIFFERENCE|UNION|CHUNK|COPY|CLONE|EXISTS|COMMAND_EXISTSs)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(FILE_EXISTS|FILE_DELETE|FILE_MOVE|FILE_RENAME|FILE_SIZE|FILE_OPEN|FILE_WRITE|FILE_READ|FILE_APPEND|FILE_CLOSE|DIRECTORY_CREATE|DIRECTORY_DELETE|DIRECTORY_RENAME|DIRECTORY_EXISTS|DIRECTORY_COPY|DIRECTORY_MOVE|DIRECTORY_SIZE|DIRECTORY_LIST|DIRECTORY_LIST_FILES|DIRECTORY_LIST_DIRS|PATH_FILENAME|PATH_EXT|PATH_DIR|PATH_JOIN|PATH_ABSOLUTE|PATH_RELATIVE|PATH_PARENT|PATH_NORMALIZE|PATH_SPLIT|JSON_PARSE|JSON_TO_STRING|JSON_TO_PRETTY|JSON_LOAD|JSON_SAVE)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(HTTP_SET_PARAMS|HTTP_SET_HEADER|HTTP_SET_METHOD|HTTP_SET_DATA|HTTP_SET_TIMEOUT|HTTP_RESET|HTTP_REQUEST|HTTP_REQUEST_EXT|HTTP_GET|HTTP_POST|HTTP_DOWNLOAD|HTTP_UPLOAD|HTTP_GET_SETTINGS)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(SYNTAX_ERROR|VALUE_ERROR|RUNTIME_ERROR|TYPE_ERROR)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(IS_STRING|IS_NUMBER|IS_INTEGER|IS_FLOAT|IS_ARRAY|IS_MAP|IS_BOOL|IS_NULL|IS_PATTERN|IS_DATE|IS_EMPTY|IS_INFINITY|IS_NAN|IS_EMAIL|IS_URL|IS_DIGIT|IS_NUMERIC|IS_ALPHA|IS_LETTER|IS_ALPHANUMERIC|IS_UPPERCASE|IS_LOWERCASE|IS_TITLECASE|IS_DEC|IS_HEX|IS_ASCII|IS_EVEN|IS_ODD)\\b"
+				},
+
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "\\b(DATE_CREATE|DATE_NOW|DATE_FORMAT|DATE_FORMAT_NOW|DATE_SINCE|DATE_DISTANCE|DATE_COMPARE|DATE_IS_BEFORE|DATE_IS_AFTER|DATE_IS_SAME|DATE_IS_LEAP_YEAR|DATE_DIFF_YEARS|DATE_DIFF_MONTHS|DATE_DIFF_WEEKS|DATE_DIFF_DAYS|DATE_DIFF_HOURS|DATE_DIFF_MINUTES|DATE_DIFF_SECONDS|DATE_DIFF_MICROSECONDS|DATE_GET_YEAR|DATE_GET_MONTH|DATE_GET_WEEK|DATE_GET_DAY|DATE_GET_HOUR|DATE_GET_MINUTE|DATE_GET_SECOND|DATE_GET_MICROSECOND|DATE_GET_TIMESTAMP|DATE_GET_DAYS_IN_MONTH|DATE_GET_DAYS_IN_YEAR|DATE_GET_WEEKDAY|DATE_GET_WEEKDAY_NAME|DATE_GET_WEEK_OF_YEAR|DATE_GET_DAY_OF_YEAR|DATE_GET_HOUR_OF_YEAR|DATE_GET_MINUTE_OF_YEAR|DATE_GET_SECOND_OF_YEAR|DATE_GET_MICROSECOND_OF_YEAR|DATE_GET_TIMEZONE|DATE_GET_LOCALE|DATE_GET_FORMAT|DATE_SET_TIMEZONE|DATE_SET_LOCALE|DATE_SET_FORMAT|DATE_INCREMENT_YEAR|DATE_INCREMENT_MONTH|DATE_INCREMENT_WEEK|DATE_INCREMENT_DAY|DATE_INCREMENT_HOUR|DATE_INCREMENT_MINUTE|DATE_INCREMENT_SECOND|DATE_INCREMENT_MICROSECOND)\\b"
+				}
+
+				
+			]
+		},
+
+		"custom_commands": {
+			"patterns": [
+				
+				{
+					"name": "support.function.builtin.scriptal",
+					"match": "(?<=^|\\s)([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*((?:[^;()'\\\"\"]|\"(?:[^\"\\\\]|\\\\.)*\"|'(?:[^'\\\\]|\\\\.)*'|\\([^)]*\\))*?;))"
+				}
+			]
+		},
+
+		"connectors": {
+			"patterns": [
+				{
+					"name": "keyword.control.command.scriptal",
+					"match": "\\b(AS|AT|BETWEEN|BY|FROM|IN|INTO|THAN|TO|WHERE|WITH|OF)\\b"
+				},
+				{
+					"name": "keyword.control.command.scriptal",
+					"match": "\\b(IS|NOT|GT|LT|GEQ|LEQ)\\b"
+				}
+			]
+		},
+
+		"strings": {
+			"patterns": [
+				{
+				  "name": "string.quoted.double.scriptal",
+				  "begin": "\"",
+				  "end": "\"",
+				  "patterns": [
+					{
+					  "name": "constant.character.escape.scriptal",
+					  "match": "\\\\[\"'\\\\nrt]"
+					}
+				  ]
+				},
+				{
+				  "name": "string.quoted.single.scriptal",
+				  "begin": "'",
+				  "end": "'",
+				  "patterns": [
+					{
+					  "name": "constant.character.escape.scriptal",
+					  "match": "\\\\[\"'\\\\nrt]"
+					}
+				  ]
+				},
+				{
+				  "name": "string.quoted.raw.double.scriptal",
+				  "begin": "!\"",
+				  "end": "\"",
+				  "patterns": []
+				},
+				{
+				  "name": "string.quoted.raw.single.scriptal",
+				  "begin": "!'",
+				  "end": "'",
+				  "patterns": []
+				}
+			  ]
+		},
+
+		"nestedSingleQuotes": {
+			"name": "string.quoted.single.nested.scriptal",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.scriptal",
+					"match": "\\\\."
+				},
+				{
+                    "name": "variable.other.interpolated.scriptal",
+                    "begin": "\\{\\{",
+                    "end": "\\}\\}",
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+			]
+		},
+
+		"nestedDoubleQuotes": {
+			"name": "string.quoted.double.nested.scriptal",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.scriptal",
+					"match": "\\\\."
+				},	
+				{
+                    "name": "variable.other.interpolated.scriptal",
+                    "begin": "\\{\\{",
+                    "end": "\\}\\}",
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+			]
+		},
+
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.scriptal",
+					"match": "\\b-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?\\b"
+				}
+			]
+		}
+
+
+
+	},
+	
+	"scopeName": "source.scriptal"
+}

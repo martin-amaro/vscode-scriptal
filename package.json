@@ -1,0 +1,93 @@
+{
+    "name": "scriptal",
+    "displayName": "Scriptal",
+    "description": "This extension provides syntax highlighting and essential tools tailored for the Scriptal programming language.",
+    "version": "0.1.1",
+    "publisher": "Martin Amaro",
+    "author": {
+        "name": "Martin Amaro",
+        "email": "martingadpacks@gmail.com"
+    },
+    "license": "MIT",
+    "keywords": [
+        "scriptal",
+        "scriptal helper",
+        "scriptal help",
+        "scriptal syntax"
+    ],
+    "icon": "images/scriptal.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/martin-amaro/vscode-scriptal.git"
+    },
+    "bugs": {
+		"url": "https://github.com/martin-amaro/vscode-scriptal.git"
+	},
+    "engines": {
+        "vscode": "^1.92.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "scriptal",
+                "aliases": [
+                    "Scriptal",
+                    "scriptal"
+                ],
+                "extensions": [
+                    ".stal"
+                ],
+                "icon": {
+                    "light": "./images/scriptal-file-icon.png",
+                    "dark": "./images/scriptal-file-icon.png"
+                },
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "scriptal",
+                "scopeName": "source.scriptal",
+                "path": "./syntaxes/scriptal.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "scriptal",
+                "path": "./snippets/scriptal.json"
+            }
+        ],
+        "configuration": {
+            "title": "Scriptal"
+        },
+        "configurationDefaults": {
+			"[scriptal]": {
+				"editor.quickSuggestions": {
+					"other": true,
+					"comments": false,
+					"strings": false
+				},
+				"editor.tabCompletion": "on",
+				"editor.quickSuggestionsDelay": 1,
+				"editor.suggest.snippetsPreventQuickSuggestions": false
+			}
+		}
+    },
+    "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"package": "vsce package",
+		"publish": "vsce package"
+	},
+    "devDependencies": {
+        "@types/vscode": "^1.92.0"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^9.0.1"
+    }
+}
