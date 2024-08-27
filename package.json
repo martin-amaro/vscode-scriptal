@@ -3,7 +3,7 @@
     "displayName": "Scriptal",
     "description": "This extension provides syntax highlighting and essential tools tailored for the Scriptal programming language.",
     "version": "0.1.1",
-    "publisher": "Martin Amaro",
+    "publisher": "MartinAmaro",
     "author": {
         "name": "Martin Amaro",
         "email": "martingadpacks@gmail.com"
@@ -29,6 +29,9 @@
     "categories": [
         "Programming Languages"
     ],
+    "activationEvents": [
+		"onLanguage:scriptal"
+	],
     "main": "./out/extension.js",
     "contributes": {
         "languages": [
