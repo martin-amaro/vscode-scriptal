@@ -1,5 +1,11 @@
 ## Scriptal for Visual Studio Code
 
+[![Version](https://img.shields.io/visual-studio-marketplace/v/martinamaro.scriptal)](https://marketplace.visualstudio.com/items?itemName=MartinAmaro.scriptal)
+[![license](https://img.shields.io/github/license/martin-amaro/vscode-scriptal)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-windows-blue)
+
+
+
 This is an extension for the [Scriptal programming language](https://github.com/martin-amaro/Scriptal). It provides syntax highlighting, code snippets, and other features to enhance the development experience.
 
 
