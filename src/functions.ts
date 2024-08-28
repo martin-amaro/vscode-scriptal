@@ -573,64 +573,64 @@ newCMD(
 );
 
 newCMD(
-    'AVERAGE',
-    'AVERAGE {ARRAY_NUMBER} [AS {VAR}]',
+    'STAT_AVERAGE',
+    'STAT_AVERAGE {ARRAY_NUMBER} [AS {VAR}]',
     'Calculate the average of a list of numbers.',
     [
         { name: 'ARRAY_NUMBER', description: 'Array of numbers to calculate the average of.' },
         { name: 'VAR', description: 'Variable to store the result (optional).' }
     ],
     'NUMBER',
-    'AVERAGE [1, 2, 3, 4] AS $result'
+    'STAT_AVERAGE [1, 2, 3, 4] AS $result'
 );
 
 newCMD(
-    'MEDIAN',
-    'MEDIAN {ARRAY_NUMBER} [AS {VAR}]',
+    'STAT_MEDIAN',
+    'STAT_MEDIAN {ARRAY_NUMBER} [AS {VAR}]',
     'Calculate the median of a list of numbers.',
     [
         { name: 'ARRAY_NUMBER', description: 'Array of numbers to calculate the median of.' },
         { name: 'VAR', description: 'Variable to store the result (optional).' }
     ],
     'NUMBER',
-    'MEDIAN [1, 2, 3, 4] AS $result'
+    'STAT_MEDIAN [1, 2, 3, 4] AS $result'
 );
 
 newCMD(
-    'MODE',
-    'MODE {ARRAY_NUMBER} [AS {VAR}]',
+    'STAT_MODE',
+    'STAT_MODE {ARRAY_NUMBER} [AS {VAR}]',
     'Calculate the mode of a list of numbers.',
     [
         { name: 'ARRAY_NUMBER', description: 'Array of numbers to calculate the mode of.' },
         { name: 'VAR', description: 'Variable to store the result (optional).' }
     ],
     'NUMBER',
-    'MODE [1, 2, 2, 3]'
+    'STAT_MODE [1, 2, 2, 3]'
 );
 
 newCMD(
-    'STDEV',
-    'STDEV {ARRAY_NUMBER} [AS {VAR}]',
+    'STAT_STDEV',
+    'STAT_STDEV {ARRAY_NUMBER} [AS {VAR}]',
     'Calculate the standard deviation of a list of numbers.',
     [
         { name: 'ARRAY_NUMBER', description: 'Array of numbers to calculate the standard deviation of.' },
         { name: 'VAR', description: 'Variable to store the result (optional).' }
     ],
     'NUMBER',
-    'STDEV [1, 2, 3, 4] AS $result'
+    'STAT_STDEV [1, 2, 3, 4] AS $result'
 );
 
 
 newCMD(
-    'VARIANCE',
-    'VARIANCE {ARRAY_NUMBER} [AS {VAR}]',
+    'STAT_VARIANCE',
+    'STAT_VARIANCE {ARRAY_NUMBER} [AS {VAR}]',
     'Calculate the variance of a list of numbers.',
     [
         { name: 'ARRAY_NUMBER', description: 'Array of numbers to calculate the variance of.' },
         { name: 'VAR', description: 'Variable to store the result (optional).' }
     ],
     'NUMBER',
-    'VARIANCE [1, 2, 3, 4] AS $result'
+    'STAT_VARIANCE [1, 2, 3, 4] AS $result'
 );
 
 
